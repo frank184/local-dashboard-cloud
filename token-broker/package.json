@@ -1,0 +1,13 @@
+{
+  "name": "local-dashboard-token-broker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "OAuth token exchange service for Local Dashboard integrations",
+  "main": "src/server.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node src/server.js"
+  }
+}
