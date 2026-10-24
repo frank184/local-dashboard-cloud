@@ -1,5 +1,5 @@
 project_id                         = "your-local-dashboard-gcp-project-id"
-region                             = "us-east1"
+region                             = "us-east4"
 google_oauth_client_id             = "794848026941-9knh3g6v4e19grq1tta4q3rn2uk6fsq9.apps.googleusercontent.com"
 google_oauth_client_secret_version = "1"
 manage_cloud_run_service           = false
