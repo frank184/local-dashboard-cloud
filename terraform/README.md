@@ -37,7 +37,7 @@ Push this repository to GitHub. In Cloud Run, choose **Continuously deploy from 
 Use these service settings in the wizard:
 
 - Service name: `local-dashboard-token-broker` (or set `cloud_run_service_name` in `terraform.tfvars` to match your choice).
-- Region: the same value as Terraform's `region` (default `us-east1`).
+- Region: the same value as Terraform's `region` (default `us-east4`, Northern Virginia).
 - Runtime service account: the email printed by Terraform as `token_broker_runtime_service_account`.
 - Allow unauthenticated invocations. Terraform will track the `allUsers` invoker binding after import.
 - Environment variable `GOOGLE_OAUTH_CLIENT_ID`: the configured public client ID.
@@ -58,14 +58,14 @@ Then import the wizard-created service into the Terraform state. Use the exact s
 
 ```sh
 terraform import 'google_cloud_run_v2_service.token_broker[0]' \
-  projects/YOUR_PROJECT_ID/locations/us-east1/services/local-dashboard-token-broker
+  projects/YOUR_PROJECT_ID/locations/us-east4/services/local-dashboard-token-broker
 ```
 
 Import the unauthenticated invocation binding too, since the wizard already adds it:
 
 ```sh
 terraform import 'google_cloud_run_v2_service_iam_member.public_invoker[0]' \
-  "projects/YOUR_PROJECT_ID/locations/us-east1/services/local-dashboard-token-broker roles/run.invoker allUsers"
+  "projects/YOUR_PROJECT_ID/locations/us-east4/services/local-dashboard-token-broker roles/run.invoker allUsers"
 ```
 
 Run `terraform plan` and review it before applying. Terraform should converge the runtime identity, secret reference, ingress, and instance limit. The image is intentionally ignored, so Cloud Build can update it without Terraform reverting it. Terraform also manages public invocation access. Applying may create a new revision when it changes runtime settings.
