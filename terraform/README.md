@@ -38,6 +38,7 @@ Use these service settings in the wizard:
 
 - Service name: `token-broker` (or set `cloud_run_service_name` in `terraform.tfvars` to match your choice).
 - Region: the same value as Terraform's `region` (default `northamerica-northeast1`, Montréal).
+- Maximum number of instances: `1` (service-level cap; minimum remains `0`).
 - Runtime service account: the email printed by Terraform as `token_broker_runtime_service_account`.
 - Allow unauthenticated invocations. Terraform will track the `allUsers` invoker binding after import.
 - Environment variable `GOOGLE_OAUTH_CLIENT_ID`: the configured public client ID.

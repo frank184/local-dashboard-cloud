@@ -115,12 +115,12 @@ resource "google_cloud_run_v2_service" "token_broker" {
   deletion_protection = false
   ingress             = "INGRESS_TRAFFIC_ALL"
 
+  scaling {
+    max_instance_count = 1
+  }
+
   template {
     service_account = google_service_account.token_broker.email
-
-    scaling {
-      max_instance_count = 3
-    }
 
     containers {
       # Cloud Build supplies the real image. This field is intentionally ignored
