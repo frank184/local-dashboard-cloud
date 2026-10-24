@@ -17,7 +17,7 @@ variable "project_id" {
 variable "region" {
   description = "Cloud Run region."
   type        = string
-  default     = "us-east1"
+  default     = "us-east4"
 }
 
 variable "google_oauth_client_id" {
