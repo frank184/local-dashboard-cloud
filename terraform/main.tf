@@ -46,7 +46,7 @@ variable "manage_cloud_run_service" {
 variable "cloud_run_service_name" {
   description = "Cloud Run service name created by the GitHub deployment wizard."
   type        = string
-  default     = "local-dashboard-token-broker"
+  default     = "token-broker"
 }
 
 provider "google" {
